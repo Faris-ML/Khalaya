@@ -1,0 +1,8 @@
+Django
+djangorestframework
+numpy
+tensorflow-cpu
+transformers
+boto3
+smart-open
+gunicorn

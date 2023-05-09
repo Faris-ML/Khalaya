@@ -1,0 +1,108 @@
+* {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.button {
+	position: relative;
+	background-image: none;
+	border: 1px;
+	outline: none;
+	background-color: #ffffff;
+	color: rgb(74, 74, 74);
+	text-transform: uppercase;
+	font-size: 20px;
+	cursor: pointer;
+	transition: all 0.2s ease-out;
+    margin: 3%;
+    font-family: 'Droid Arabic Kufi', serif;
+        box-shadow: rgb(17 12 46 / 15%) 0px 5px 7px 0.2px;
+}
+.button::after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 160px;
+	height: 40px;
+	background-color: black;
+	z-index: -1;
+	left: calc(50% - 80px);
+	top: 10px;
+	opacity: 0.3;
+	filter: blur(5px);
+	transition: all 0.2s ease-out;
+}
+.button:hover::after {
+	opacity: 0.5;
+	filter: blur(20px);
+	transform: translatey(10px) scalex(1.2);
+}
+.button:active {
+	background-color: #5f5f5f;
+}
+.button:active::after {
+	opacity: 0.3;
+}
+.loading {
+	border-radius: 50px;
+	width: 50px;
+	left: calc(50vw - 25px);
+}
+.button.loading::after {
+	width: 40px;
+	left: 5px;
+	top: 12px;
+	border-radius: 100%;
+}
+.spinner {
+	display: block;
+	width: 34px;
+	height: 34px;
+	position: absolute;
+	top: 8px;
+	left: calc(50% - 17px);
+	background: transparent;
+	box-sizing: border-box;
+	border-top: 4px solid white;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+	border-radius: 100%;
+	animation: spin 0.6s ease-out infinite;
+}
+@keyframes spin {
+	100% {transform: rotate(360deg)}
+}
+
+
+.inner_wrapper {
+    width: calc(100% - 20px);
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+.textarea {
+    padding: 5px 8px;
+    border: 0;
+    width: 500px;
+    height: 20px;
+        background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: rgb(0 0 0 / 50%) 0px -2px 0px 0px inset, rgb(255 255 255 / 0%) -13px -4px 4px 7px inset;
+    color: black;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    appearance: auto;
+    resize: auto;
+    cursor: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    column-count: initial !important;
+    margin: 0em;
+    font-size:2rem;
+    
+  }

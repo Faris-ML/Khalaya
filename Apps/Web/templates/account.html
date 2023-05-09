@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!-- {% load static %} -->
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <title>index</title>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'index-styles-copy.css' %}"/>
+    <link rel="stylesheet" href="{% static 'slides-styles-copy.css' %}"/>
+    <link rel="stylesheet" href="{% static 'button-styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'account.css' %}"/>
+</head>
+<body link="#333333">
+<div id="container">
+    <div id="abc" class="all-div">
+        <div class="header">
+            <!--Content before waves-->
+            <div style="display: flow-root">
+                <svg
+                        class="waves"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 24 150 28"
+                        preserveAspectRatio="none"
+                        shape-rendering="auto"
+                >
+                    <defs>
+                        <path
+                                id="gentle-wave"
+                                d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+                        />
+                    </defs>
+                    <g class="parallax">
+                        <use
+                                xlink:href="#gentle-wave"
+                                x="48"
+                                y="0"
+                                fill="rgba(255,255,255,0.7"
+                        />
+                        <use
+                                xlink:href="#gentle-wave"
+                                x="48"
+                                y="3"
+                                fill="rgba(255,255,255,0.5)"
+                        />
+                        <use
+                                xlink:href="#gentle-wave"
+                                x="48"
+                                y="5"
+                                fill="rgba(255,255,255,0.3)"
+                        />
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff"/>
+                    </g>
+                </svg>
+            </div>
+            <!--Waves end-->
+        </div>
+        <!--Header ends-->
+        <!--main div-->
+           <!-- Navbar top -->
+    <div class="sidenav">
+        <div class="profile">
+            <img src="{% static 'user.png' %}" alt="" width="80" height="80">
+
+            <div class="name">
+                {{First_name}} {{Last_name}}
+            </div>
+            <div class="job">
+                {{Job}}
+            </div>
+        </div>
+
+        <div class="sidenav-url">
+            <div class="url">
+                <a href="#profile" class="active">Profile</a>
+                <hr align="center">
+            </div>
+            <div class="url">
+                <a href="#settings">Settings</a>
+                <hr align="center">
+            </div>
+            <div class="url">
+                <a href="/">Back</a>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-top">
+        <ul></ul>
+        <div class="title">
+            <h1 style="font-size: 40px;height: 20%;">Account</h1>
+        </div>
+
+        <!-- Navbar -->
+
+        <!-- End -->
+    </div>
+    <!-- End -->
+
+    <!-- Sidenav -->
+
+    <!-- End -->
+
+    <!-- Main -->
+    <div class="main">
+        <div class = "sub_main" style = "display: grid; grid-template-columns: 50% 50%;">
+        <h2>User info</h2>
+        <h3 style="width : 100%"><a href="account_edit" style="font-size:20px; color:black;font-weight: 400; float: right;">Edit</a></h3>
+        </div>
+            <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>:</td>
+                            <td>{{First_name}} {{Last_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td>{{Email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>:</td>
+                            <td>{{Address}}</td>
+                        </tr>
+                        <tr>
+                            <td>Sex</td>
+                            <td>:</td>
+                            <td>{{Sex}}</td>
+                        </tr>
+                        <tr>
+                            <td>Job</td>
+                            <td>:</td>
+                            <td>{{Job}}</td>
+                        </tr>
+                        <tr>
+                            <td>Organization</td>
+                            <td>:</td>
+                            <td>{{Org}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone number</td>
+                            <td>:</td>
+                            <td>{{Phone_number}}</td>
+                        </tr>
+                        <tr>
+                            <td>Create date</td>
+                            <td>:</td>
+                            <td>{{Creat_date}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <h2>Subscriptions</h2>
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Service name</td>
+                            <td>Start date</td>
+                            <td>End date</td>
+                            <td>Total price</td>
+                        </tr>
+                    {% for service in Subscriptions %}
+                        <tr>
+                            <td>{{service.Name}}</td>
+                            <td>{{service.Start_date}}</td>
+                            <td>{{service.End_date}}</td>
+                            <td>{{service.Total_price}}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+
+    </div>
+</div>
+
+<!--Content ends-->
+</body>
+</html>
