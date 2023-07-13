@@ -111,6 +111,22 @@ of Simple CSS Waves-->
           <img src="{% static 'loudspeaker.png' %}" height="50%">
           <p>اعلان</p>
           {{speech_act_conf}}%
+          {% elif speech_act == 'Miscellaneous' %}
+          <img src="{% static 'loudspeaker.png' %}" height="50%">
+          <p>متنوع</p>
+          {{speech_act_conf}}%
+          {% elif speech_act == 'Question' %}
+          <img src="{% static 'question-mark.png' %}" height="50%">
+          <p>سؤال</p>
+          {{speech_act_conf}}%
+          {% elif speech_act == 'Recommendation' %}
+          <img src="{% static 'social-media.png' %}" height="50%">
+          <p>نصيحة</p>
+          {{speech_act_conf}}%
+          {% elif speech_act == 'Request' %}
+          <img src="{% static 'bell.png' %}" height="50%">
+          <p>طلب</p>
+          {{speech_act_conf}}%
           {% else %}
           <p>error</p>
           {% endif %}
