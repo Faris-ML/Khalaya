@@ -14,9 +14,13 @@ def home(request):
 
 def result(request):
     error['error'] = ''
-    #response = requests.get('http://127.0.0.1:8000/model/?sentence='+str(request.GET['input']))
-    #res = response.json()
-    return render(request,'sss.html')
+    input = str(request.GET['input'])
+    input = WebConfig.tokenizer(input,truncation=True, padding='max_length',max_length=256)
+    del input['token_type_ids']
+    rest_api_url = ' https://u47snfxcw6.execute-api.eu-west-1.amazonaws.com/Test/arabiclanguageanalysis'
+    response = requests.post(url = rest_api_url, json = input, headers = {'content-type': 'application/json'})
+    res = response.json()
+    return render(request,'sss.html',res)
 
 def sign_in(request):
     error['error'] = ''
