@@ -18,7 +18,7 @@ def result(request):
     input = WebConfig.tokenizer(input,truncation=True, padding='max_length',max_length=256)
     del input['token_type_ids']
     rest_api_url = ' https://u47snfxcw6.execute-api.eu-west-1.amazonaws.com/Test/arabiclanguageanalysis'
-    response = requests.post(url = rest_api_url, json = input.encode('utf-8'), headers = {'content-type': 'application/json'})
+    response = requests.post(url = rest_api_url, json = input, headers = {'content-type': 'application/json'})
     res = response.json()
     return render(request,'sss.html',res)
 
