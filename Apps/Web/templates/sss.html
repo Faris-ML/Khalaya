@@ -84,20 +84,52 @@ of Simple CSS Waves-->
     <div class="main-div-result" style="font-size: 30px;">
         <!--the wrapping text on the left of the page-->
         <div class="main-div-result-sub">
-            <img src="{% static 'smile.png' %}" height="50%">
-            <p>مشاعر ايجابية</p>
-        </div>
+          {% if sentiment == 'Positive' %}
+          <img src="{% static 'smile.png' %}" height="50%">
 
-        <div class="main-div-result-sub">
-            <img src="{% static 'expression.png' %}" height="50%">
-            <p>تعبير</p>
-        </div>
+          <p>مشاعر ايجابية</p>
+          {{sentiment_conf}}%
+          {% elif sentiment == 'Neutral' %}
+          <img src="{% static 'meh.png' %}" height="50%">
+          <p>مشاعر حيادية</p>
+          {{sentiment_conf}}%
+          {% elif sentiment == 'Negative' %}
+          <img src="{% static 'sad.png' %}" height="50%">
+          <p>مشاعر سلبية</p>
+          {{sentiment_conf}}%
+          {% else %}
+          <p>error</p>
+          {% endif %}
+      </div>
 
-        <div class="main-div-result-sub" >
-            <img src="{% static 'laughing.png' %}" height="50%">
-            <p>سخرية</p>
-        </div>
-    </div>
+      <div class="main-div-result-sub">
+          {% if speech_act == 'Expression' %}
+          <img src="{% static 'expression.png' %}" height="50%">
+          <p>تعبير</p>
+          {{speech_act_conf}}%
+          {% elif speech_act == 'Assertion' %}
+          <img src="{% static 'loudspeaker.png' %}" height="50%">
+          <p>اعلان</p>
+          {{speech_act_conf}}%
+          {% else %}
+          <p>error</p>
+          {% endif %}
+      </div>
+
+      <div class="main-div-result-sub" >
+          {% if sarcasm == 'sarcastic' %}
+          <img src="{% static 'laughing.png' %}" height="50%">
+          <p>سخرية</p>
+          {{sarcasm_conf}}%
+          {% elif sarcasm == 'non-sarcastic' %}
+          <img src="{% static 'crying.png' %}" height="50%">
+          <p >غير ساخر</p>
+          {{sarcasm_conf}}%
+          {% else %}
+          <p>error</p>
+          {% endif %}
+      </div>
+  </div>
     <div class="main-div-result2">
         <button onclick="history.back()" class="button">حاول مرة أخرى</button>
     </div>
