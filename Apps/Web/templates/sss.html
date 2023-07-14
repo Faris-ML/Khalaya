@@ -86,7 +86,6 @@ of Simple CSS Waves-->
         <div class="main-div-result-sub">
           {% if sentiment == 'Positive' %}
           <img src="{% static 'smile.png' %}" height="50%">
-
           <p>مشاعر ايجابية</p>
           {{sentiment_conf}}%
           {% elif sentiment == 'Neutral' %}
@@ -99,6 +98,7 @@ of Simple CSS Waves-->
           {{sentiment_conf}}%
           {% else %}
           <p>error</p>
+          {{sentiment}}%
           {% endif %}
       </div>
 
