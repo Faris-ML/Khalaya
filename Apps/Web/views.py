@@ -15,10 +15,8 @@ def home(request):
 def result(request):
     error['error'] = ''
     input = str(request.GET['input'])
-    input_tokens = WebConfig.tokenizer(input,truncation=True, padding='max_length',max_length=256)
-    del input_tokens['token_type_ids']
     rest_api_url = ' https://u47snfxcw6.execute-api.eu-west-1.amazonaws.com/Test/arabiclanguageanalysis'
-    response = requests.post(url = rest_api_url, json = dict(input_tokens), headers = {'content-type': 'application/json'})
+    response = requests.post(url = rest_api_url, json = {"text":input}, headers = {'content-type': 'application/json'})
     res = response.json()
     data = WebConfig.db['Text_data_predicted']
     res['text'] = input
